@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+vim.g.python3_host_prog = "/usr/bin/python3"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
