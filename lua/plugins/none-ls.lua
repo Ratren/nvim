@@ -8,7 +8,7 @@ return {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.diagnostics.rubocop,
 				null_ls.builtins.formatting.rubocop,
-				null_ls.builtins.diagnostics.cpplint,
+				--null_ls.builtins.diagnostics.cpplint,
 				null_ls.builtins.formatting.clang_format,
 			},
 		})

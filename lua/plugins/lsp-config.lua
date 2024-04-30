@@ -18,10 +18,26 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
+
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
       })
       lspconfig.clangd.setup({
+        cmd = {
+          "/home/rat/CLANGD/llvm/build/bin/clangd",
+          "--background-index",
+          "--clang-tidy",
+          "--header-insertion=iwyu",
+          "--completion-style=detailed",
+          "--function-arg-placeholders",
+          "--fallback-style=llvm",
+          "--compile-commands-dir=build",
+        },
+        init_options = {
+          usePlaceholders = true,
+          completeUnimported = true,
+          clangdFileStatus = true,
+        },
         capabilities = capabilities,
       })
       lspconfig.marksman.setup({
@@ -37,6 +53,8 @@ return {
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
       vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+      vim.keymap.set("n", "<leader>rs", vim.lsp.buf.rename, {})
+      vim.keymap.set("n", "<leader>e", "<cmd> lua vim.diagnostic.open_float()<CR>", {})
     end,
   },
 }
