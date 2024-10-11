@@ -19,6 +19,7 @@ return {
 					"arduino_language_server",
 					"angularls",
 					"tsserver",
+					"pylsp",
 				},
 			})
 		end,
@@ -41,6 +42,9 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.arduino_language_server.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.pylsp.setup({
 				capabilities = capabilities,
 			})
 			local languageServerPath = "C:/Users/rafal.lenart/AppData/Local/nvim-npm"
