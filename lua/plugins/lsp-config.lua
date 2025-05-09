@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "clangd", "marksman", "ltex", "arduino_language_server" },
+        ensure_installed = { "lua_ls", "clangd", "marksman", "arduino_language_server", "hls" },
       })
     end,
   },
@@ -43,11 +43,17 @@ return {
       lspconfig.marksman.setup({
         capabilities = capabilities,
       })
-      lspconfig.ltex.setup({
-        capabilities = capabilities,
-      })
       lspconfig.arduino_language_server.setup({
         capabilities = capabilities,
+      })
+      lspconfig.angularls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.tsserver.setup({
+        capabilities = capabilities
+      })
+      lspconfig.hls.setup({
+        capabilities = capabilities
       })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
